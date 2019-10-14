@@ -1,9 +1,12 @@
 const express = require('express');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send({hi: 'there'});
-});
+//take passport library and make use of GoogleStrategy
+passport.use(new GoogleStrategy());
+
 
 // adding dynamic port for heroku deployment
 const PORT = process.env.PORT || 5000;
