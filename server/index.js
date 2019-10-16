@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const keys = require('./config/keys');
-//const config = require('config');
 require('./models/User');
 require('./services/passport'); //becuase there is nothing to config we can just 'require'
 
