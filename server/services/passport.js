@@ -21,12 +21,13 @@ passport.use
             .then((existingUser) => {
                 if(existingUser) {
                     //we already have a record with given profile ID
-                    return done(null, existingUser);
+                    done(null, existingUser);
                 } else {
                     // we dont have a user with this ID make a new record
-                    new User({ googleId: profile.id}).save(); //take model instance and save to DB
+                    new User({ googleId: profile.id}).save() //take model instance and save to DB
+                        .then(user => done(null, user));
                 }
-            })
+            });
         }
     )
 );
